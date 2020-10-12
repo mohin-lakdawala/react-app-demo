@@ -1,5 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To get started,
+
+1. Clone this repository.
+1. Run `npm install` in the project root.
+1. Set up the backend Laravel app server as mentioned on https://github.com/mohin-lakdawala/laravel-app-demo.
+1. Once backend server is up and running, update the `src/services/config.js` with the URL of the backend server. If default port is used, it should be `http://localhost:8080` in which case, this step can be skipped.
+1. Run `npm run start` to start the development server.
+1. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Register a new user and start the game.
+
+## TODOS:
+Some improvements that can be done but left out in this iteration due to time constraints have been listed below:
+
+1. Add tests for React components.
+1. More robust state management and authentication using a state management library like [Redux](https://react-redux.js.org) or [MobX](https://mobx.js.org/README.html).
+1. "Remember me" functionality with `refresh token` behaviour. Currently, the token is not refreshed automatically when it expires and user is asked to login again.
+
 ## Available Scripts
 
 In the project directory, you can run:
