@@ -4,8 +4,8 @@ import AuthService from "../services/AuthService";
 
 export default function Login() {
 
-    const [email, setEmail] = useState('6@m.com');
-    const [password, setPassword] = useState('password');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [loginMessage, setLoginMessage] = useState('');
 
     const history = useHistory();

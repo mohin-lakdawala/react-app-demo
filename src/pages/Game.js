@@ -9,10 +9,10 @@ import GameOverDialog from "../components/GameOverDialog";
 export default function Game() {
 
     const [gameOver, setGameOver] = useState(false);
-    const [secondsRemaining, setSecondsRemaining] = useState(10);
+    const [secondsRemaining, setSecondsRemaining] = useState(60);
     const [playersTurn, setPlayersTurn] = useState(true);
-    const [playerLife, setPlayerLife] = useState(25);
-    const [dragonLife, setDragonLife] = useState(25);
+    const [playerLife, setPlayerLife] = useState(100);
+    const [dragonLife, setDragonLife] = useState(100);
     const [logs, setLogs] = useState([]);
     const { id } = useParams();
 

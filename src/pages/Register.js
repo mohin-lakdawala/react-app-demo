@@ -4,9 +4,9 @@ import AuthService from "../services/AuthService";
 
 export default function Register() {
 
-    const [name, setName] = useState('John');
-    const [email, setEmail] = useState('6@m.com');
-    const [password, setPassword] = useState('password');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [registerMessage, setRegisterMessage] = useState('');
 
     const history = useHistory();
@@ -16,7 +16,6 @@ export default function Register() {
 
         AuthService.register({name, email, password})
             .then(res => {
-                console.log('response', res);
                 if (res.status === 200) {
                     localStorage.setItem('userInfo', JSON.stringify(res.data));
                     history.push('/dashboard');
