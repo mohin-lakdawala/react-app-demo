@@ -7,9 +7,9 @@ import Login from "./pages/Login";
 import Game from "./pages/Game";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import GameList from "./pages/GameList";
 
 import AuthService from "./services/AuthService";
-import GameList from "./pages/GameList";
 
 export default function App() {
   return (
