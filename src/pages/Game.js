@@ -104,9 +104,7 @@ export default function Game() {
                 playerLife,
                 dragonLife,
                 logs
-            }, id).then(response => {
-                console.log('DONE', response);
-            });
+            }, id).then(() => {});
         }
     }, [gameOver]);
 

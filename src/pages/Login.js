@@ -15,7 +15,6 @@ export default function Login() {
 
         AuthService.login({email, password})
             .then(res => {
-                console.log('response', res);
                 if (res.status === 200) {
                     localStorage.setItem('userInfo', JSON.stringify(res.data));
                     history.push('/dashboard');

@@ -9,7 +9,6 @@ class GamesService {
     }
 
     start() {
-        console.log('game start');
         return axios.post(API_BASE_URL + 'games', {}, getAuthHeader());
     }
 
