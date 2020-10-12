@@ -1,36 +1,28 @@
 import axios from 'axios';
-
-const USER_API_BASE_URL = 'http://localhost:8000/api/';
+import {getAuthHeader, getUserInfo} from "./helper";
+import {API_BASE_URL} from "./config";
 
 class AuthService {
 
     login(credentials){
-        return axios.post(USER_API_BASE_URL + "login", credentials);
+        return axios.post(API_BASE_URL + "login", credentials);
     }
 
     register(data){
-        return axios.post(USER_API_BASE_URL + "register", data);
-    }
-
-    getUserInfo(){
-        return JSON.parse(localStorage.getItem("userInfo"));
-    }
-
-    getAuthHeader() {
-        return { headers: { Authorization: `Bearer ${this.getUserInfo()['access_token']}` }};
+        return axios.post(API_BASE_URL + "register", data);
     }
 
     logOut() {
-        return axios.post(USER_API_BASE_URL + 'logout', {}, this.getAuthHeader());
+        return axios.post(API_BASE_URL + 'logout', {}, getAuthHeader());
     }
 
     isAuthenticated() {
 
-        if (! this.getUserInfo() || ! this.getUserInfo()['access_token']) {
+        if (! getUserInfo() || ! getUserInfo()['access_token']) {
             return false;
         }
 
-        return axios.post(USER_API_BASE_URL + 'me', {}, this.getAuthHeader())
+        return axios.post(API_BASE_URL + 'me', {}, getAuthHeader())
             .then(res => {
                 if (res.status === 200) {
                     return true;
