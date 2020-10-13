@@ -16,6 +16,7 @@ Some improvements that can be done but left out in this iteration due to time co
 1. Add tests for React components.
 1. More robust state management and authentication using a state management library like [Redux](https://react-redux.js.org) or [MobX](https://mobx.js.org/README.html).
 1. "Remember me" functionality with `refresh token` behaviour. Currently, the token is not refreshed automatically when it expires and user is asked to login again.
+1. Use Docker for development
 
 ## Available Scripts
 
