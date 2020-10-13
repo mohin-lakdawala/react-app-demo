@@ -40,7 +40,10 @@ export default function Register() {
                 }
             })
             .catch(error => {
-                setRegisterMessage(error.response.data.message);
+                setRegisterMessage(
+                    error.response?.data?.message ||
+                    'Registration failed. Please try again.'
+                );
             })
     };
 
