@@ -1,10 +1,8 @@
 import React, {useCallback, useEffect, useState} from "react";
 import GamesService from "../services/GamesService";
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import CommentaryItems from "../components/CommentaryItems";
 import GameOverDialog from "../components/GameOverDialog";
-
-
 
 export default function Game() {
 
@@ -15,6 +13,7 @@ export default function Game() {
     const [dragonLife, setDragonLife] = useState(100);
     const [logs, setLogs] = useState([]);
     const { id } = useParams();
+    const history = useHistory();
 
     const isGameFinished = useCallback(
         () => {
@@ -80,6 +79,10 @@ export default function Game() {
             attackPlayerFor(randomIntBetween(1, 10));
         }, 1000);
 
+    }
+
+    const handleSurrender = () => {
+        history.push('/dashboard');
     }
 
     useEffect(() => {
@@ -166,7 +169,7 @@ export default function Game() {
                     <button className="rpgui-button golden" disabled={!playersTurn} onClick={handleAttack} type="button"><p>Attack</p></button>
                     <button className="rpgui-button golden" disabled={!playersTurn} onClick={handleBlast} type="button"><p>Blast</p></button>
                     <button className="rpgui-button golden" disabled={!playersTurn} onClick={handleHeal} type="button"><p>Heal</p></button>
-                    <button className="rpgui-button golden" disabled={!playersTurn} onClick={handleAttack} type="button"><p>Surrender</p></button>
+                    <button className="rpgui-button golden" disabled={!playersTurn} onClick={handleSurrender} type="button"><p>Surrender</p></button>
                 </div>
                 </>
                 :
