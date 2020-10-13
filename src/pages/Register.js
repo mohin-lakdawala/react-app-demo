@@ -14,6 +14,22 @@ export default function Register() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
+        // Validate form inputs
+        if (! name) {
+            alert('Name field is required.');
+            return;
+        }
+
+        if (! email) {
+            alert('Email field is required.');
+            return;
+        }
+
+        if (! password) {
+            alert('Password field is required.');
+            return;
+        }
+
         AuthService.register({name, email, password})
             .then(res => {
                 if (res.status === 200) {

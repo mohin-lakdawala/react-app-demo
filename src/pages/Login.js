@@ -13,6 +13,17 @@ export default function Login() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
+        // Validate form inputs
+        if (! email) {
+            alert('Email field is required.');
+            return;
+        }
+
+        if (! password) {
+            alert('Password field is required.');
+            return;
+        }
+
         AuthService.login({email, password})
             .then(res => {
                 if (res.status === 200) {
