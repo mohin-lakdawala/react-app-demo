@@ -26,14 +26,14 @@ export default function GameList() {
 
     const viewGameDetails = (event) => {
         const selectedGame = gameList.find((game) => {
-            return game.id == event.target.id
+            return parseInt(game.id) === parseInt(event.target.id);
         });
 
         setGameDetails(selectedGame);
     };
 
     const GameList = gameList.map((game) =>
-        <li key={game.id} id={game.id} onClick={viewGameDetails}>⏰ {game.formatted_started_at}</li>
+        <li key={game.id} id={game.id} onClick={viewGameDetails}><span role="img" aria-label="time icon">⏰</span> {game.formatted_started_at}</li>
     );
 
 
@@ -52,7 +52,9 @@ export default function GameList() {
                         <ul>
                             {gameDetails.logs.map((log, index) => {
                                 return (
-                                    <li key={index}>⚡️ {log.text}</li>
+                                    <li key={index}>
+                                        <span role="img" aria-label="flash icon">⚡️</span> {log.text}
+                                    </li>
                                 )
                             })}
                         </ul>

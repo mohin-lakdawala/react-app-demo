@@ -10,7 +10,7 @@ export default function GameOverDialog({playerLife, dragonLife}) {
     return (
         <div className="Game-Over-Dialog rpgui-container framed">
             <h2 className="Game-Icon">
-                ⚔️
+                <span role="img" aria-label="dragon slayer icon">⚔️</span>
             </h2>
             <h2>Game Over</h2>
             <p>{errorMessage}</p>

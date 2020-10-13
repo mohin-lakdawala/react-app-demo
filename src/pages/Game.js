@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
 import GamesService from "../services/GamesService";
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import CommentaryItems from "../components/CommentaryItems";
 import GameOverDialog from "../components/GameOverDialog";
 
@@ -106,7 +106,7 @@ export default function Game() {
                 logs
             }, id).then(() => {});
         }
-    }, [gameOver]);
+    }, [id, gameOver, playerLife, dragonLife, logs]);
 
     return (
         <div className="Game-Page rpgui-content">
@@ -118,7 +118,7 @@ export default function Game() {
                             <hr className="golden"/>
                             <div className="Player-Icon" role="img" aria-labelledby="player icon"
                                  style={{transform: "scaleX(-1)"}}>
-                                🤺
+                                <span role="img" aria-label="player icon">🤺</span>
                             </div>
                             <label>Stamina remaining:</label>
                             <div className="Stat">
@@ -136,7 +136,8 @@ export default function Game() {
                             <h2>Dragon</h2>
                             <hr className="golden"/>
                             <div className="Dragon-Icon" role="img" aria-labelledby="dragon icon">
-                                🐉
+                                <span role="img" aria-label="player icon">🐉</span>
+
                             </div>
                             <label>Stamina remaining:</label>
                             <div className="Stat">
